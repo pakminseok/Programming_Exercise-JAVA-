@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.io.FileInputStream;
 import java.util.Arrays;
 
 class Solution
@@ -12,38 +11,38 @@ class Solution
 
 		for(int test_case = 1; test_case <= T; test_case++)
 		{
-            boolean[] number = new boolean[10];
-            Arrays.fill(number, true);
-            
-            int N;
-            N = sc.nextInt();
-            while(N-- > 0)
-            {
-                int a,b,c,d;
-                a = sc.nextInt();
-                b= sc.nextInt();
-                c = sc.nextInt();
-                d = sc.nextInt();
+		    boolean[] number = new boolean[10];
+		    Arrays.fill(number, true);
 
-                String answer;
-                answer = sc.next();
-                if(answer.compareTo("YES") == 0)
-                {
-                    for(int num = 0; num < 10; ++num)
-                        number[num] = (num == a || num == b || num == c || num ==d ) ? number[num] & true : false;
-                }
-                else
-                {
-                    for(int num = 0; num < 10; ++num)
-                        number[num] = (num == a || num == b || num == c || num ==d ) ? false : number[num] & true;
-                }
-            }
-             for(int num = 0; num < 10; ++num)
-             {
-                 if(number[num] == false) continue;
-                 System.out.println("#"+test_case+" "+num);
-                 break;
-             }
+		    int N;
+		    N = sc.nextInt();
+		    while(N-- > 0)
+		    {
+			int a,b,c,d;
+			a = sc.nextInt();
+			b= sc.nextInt();
+			c = sc.nextInt();
+			d = sc.nextInt();
+
+			String answer;
+			answer = sc.next();
+			if(answer.compareTo("YES") == 0)
+			{
+			    for(int num = 0; num < 10; ++num)
+				number[num] = (num == a || num == b || num == c || num ==d ) ? number[num] & true : false;
+			}
+			else
+			{
+			    for(int num = 0; num < 10; ++num)
+				number[num] = (num == a || num == b || num == c || num ==d ) ? false : number[num] & true;
+			}
+		    }
+		     for(int num = 0; num < 10; ++num)
+		     {
+			 if(number[num] == false) continue;
+			 System.out.println("#"+test_case+" "+num);
+			 break;
+		     }
 		}
 	}
 }
