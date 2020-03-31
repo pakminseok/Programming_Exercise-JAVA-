@@ -4,12 +4,24 @@ public class User {
 	private String fullName;
 	private Email userEmail;
 	
-	public User(String fullName, String companyName) {
+	public User(String fullName) {
 		this.fullName = fullName;
-		userEmail = new Email(fullName, companyName);
+		userEmail = new Email(fullName);
 	}
 	
 	public void PrintEmail() {
-		System.out.print(userEmail.getEmail());
+		System.out.println(userEmail.getEmail());
+	}
+	
+	public String getFullName() {
+		return fullName;
+	}
+	
+	public String getUserEmail() {
+		return userEmail.getEmail();
+	}
+	
+	public void setUserEmail(int numbering, String compayName) {
+		userEmail.setEmail(numbering, compayName);
 	}
 }
