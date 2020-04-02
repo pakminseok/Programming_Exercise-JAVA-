@@ -1,0 +1,57 @@
+import java.util.Arrays;
+
+class Solution {
+    public int solution(int[] stones, int k) {
+        int answer = 0;
+        
+        int max_pass = maxValue(stones);
+        int min_pass = minValue(stones);
+        
+        int num_of_pass = (max_pass + min_pass) / 2;
+        
+        while(max_pass - min_pass >= 0)
+        {
+            if(canJump(stones, k, num_of_pass))
+            {
+                answer = num_of_pass;
+                min_pass = num_of_pass + 1;
+            }
+            else
+                max_pass = num_of_pass-1;
+
+            num_of_pass = (max_pass + min_pass) / 2;
+        }
+        
+        return answer;
+    }
+    
+    public boolean canJump(int[] stones, int k, int num_of_pass)
+    {
+        int num_of_jump = 0;
+        
+        for(int i = 0; i <stones.length; ++i)
+        {
+            num_of_jump = (stones[i]-num_of_pass+1 <= 0) ? num_of_jump+1 : 0;
+            if(num_of_jump == k) return false;
+        }
+        return true;
+    }
+    public int maxValue(int[] stones)
+    {
+        int max = stones[0];
+        for(int i = 0; i < stones.length; ++i)
+        {
+            max = (max < stones[i]) ? stones[i] : max;
+        }
+        return max;
+    }
+    public int minValue(int[] stones)
+    {
+        int min = stones[0];
+        for(int i = 0; i < stones.length; ++i)
+        {
+            min = (min > stones[i]) ? stones[i] : min;
+        }
+        return min;
+    }
+}
